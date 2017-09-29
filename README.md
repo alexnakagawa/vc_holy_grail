@@ -6,3 +6,4 @@
 * Ani You ([GitHub](https://github.com/Annyou/))
 * Mert Gurkan ([GitHub](https://github.com/mgurkan/))
 * Surya Sendyl ([GitHub](https://github.com/ssendyl/))
+* Dimitrios Hytiroglou ([GitHub](https://github.com/DimitriosHytiroglou))
