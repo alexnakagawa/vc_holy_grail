@@ -1,11 +1,15 @@
 import dash
+import numpy as np
 import pandas as pd
 import dash_core_components as dcc
 import dash_html_components as html
 
-df = pd.read_csv('~/Downloads/people.csv')
+# ----------------------------------------------------------------------------------
 
+df_people = pd.read_csv('./data/people.csv').replace('', np.NaN).head(10)
 
+'''Return an HTML generated table. max_rows is initialized to 10 rows,
+    dataframe is in a pandas dataframe format'''
 def generate_table(dataframe, max_rows=10):
     return html.Table(
         # Header
@@ -17,7 +21,6 @@ def generate_table(dataframe, max_rows=10):
         ]) for i in range(min(len(dataframe), max_rows))]
     )
 
-
 # ----------------------------------------------------------------------------------
 
 app = dash.Dash()
@@ -27,9 +30,9 @@ colors = {
     'text': '#7FDBFF'
 }
 
-app.layout = html.Div(style={'backgroundColor': colors['background']}, children=[
+app.layout = html.Div(children=[
     html.H1(
-        children='Hello Dash',
+        children='The Holy Grail of VC',
         style={
             'textAlign': 'center',
             'color': colors['text']
@@ -41,27 +44,15 @@ app.layout = html.Div(style={'backgroundColor': colors['background']}, children=
         'color': colors['text']
     }),
 
-    dcc.Graph(
-        id='example-graph-2',
-        figure={
-            'data': [
-                {'x': [1, 2, 3], 'y': [4, 1, 2], 'type': 'bar', 'name': 'SF'},
-                {'x': [1, 2, 3], 'y': [2, 4, 5], 'type': 'bar', 'name': u'Montreal'},
-            ],
-            'layout': {
-                'plot_bgcolor': colors['background'],
-                'paper_bgcolor': colors['background'],
-                'font': {
-                    'color': colors['text']
-                }
-            }
-        }
-    ),
-    generate_table(df)
+    generate_table(df_people)
 ])
+
+# ----------------------------------------------------------------------------------
 
 #css
 app.css.append_css({"external_url": "https://codepen.io/chriddyp/pen/bWLwgP.css"})
+
+# ----------------------------------------------------------------------------------
 
 if __name__ == '__main__':
     app.run_server(debug=True)
