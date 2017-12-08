@@ -1,0 +1,90 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema", 
+  "properties": {
+    "description": {
+      "type": "string"
+    }, 
+    "gender": {
+      "type": "string"
+    }, 
+    "images": {
+      "type": "string"
+    }, 
+    "jobs": {
+      "items": {
+        "properties": {
+          "company": {
+            "type": "string"
+          }, 
+          "ended_on": {
+            "type": "string"
+          }, 
+          "is_current": {
+            "type": "string"
+          }, 
+          "period": {
+            "type": "string"
+          }, 
+          "started_on": {
+            "type": "string"
+          }, 
+          "title": {
+            "type": "string"
+          }
+        }, 
+        "required": [
+          "title", 
+          "company", 
+          "is_current"
+        ], 
+        "type": "object"
+      }, 
+      "min_frequency": 0.3, 
+      "type": "array"
+    }, 
+    "last_visited": {
+      "type": "string"
+    }, 
+    "location": {
+      "type": "string"
+    }, 
+    "name": {
+      "type": "string"
+    }, 
+    "num_followers": {
+      "type": "number"
+    }, 
+    "primary_role": {
+      "type": "string"
+    }, 
+    "updated": {
+      "type": "string"
+    }, 
+    "websites": {
+      "items": {
+        "properties": {
+          "type": {
+            "type": "string"
+          }, 
+          "url": {
+            "type": "string"
+          }
+        }, 
+        "required": [
+          "url", 
+          "type"
+        ], 
+        "type": "object"
+      }, 
+      "type": "array"
+    }
+  }, 
+  "required": [
+    "updated", 
+    "jobs", 
+    "name", 
+    "last_visited", 
+    "location"
+  ], 
+  "type": "object"
+}
